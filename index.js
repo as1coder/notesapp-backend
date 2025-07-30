@@ -12,11 +12,23 @@ const port = process.env.PORT || 5000;
 // DB Connect
 connectDB();
 
+const allowedOrigins = [
+  'https://notesapp-frontend-s6bv.vercel.app',
+  'https://notesapp-frontend-xnqx.vercel.app'
+];
+
 app.use(cors({
-  origin: 'https://notesapp-frontend-s6bv.vercel.app',
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
+
 
 app.use(express.json());
 
