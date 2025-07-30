@@ -12,10 +12,12 @@ const port = process.env.PORT || 5000;
 // DB Connect
 connectDB();
 
-// Middleware
 app.use(cors({
-  origin: '*', 
+  origin: 'https://notesapp-frontend-s6bv.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
 }));
+
 app.use(express.json());
 
 // Routes
