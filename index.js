@@ -13,8 +13,7 @@ const port = process.env.PORT || 5000;
 connectDB();
 
 const allowedOrigins = [
-  'https://notesapp-frontend-s6bv.vercel.app',
-  'https://notesapp-frontend-xnqx.vercel.app'
+  'https://notesapp-frontend-kappa.vercel.app'
 ];
 
 app.use(cors({
